@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Zouxa</title>
+    <img src="https://www.logiserv.fi/wp-content/uploads/2021/05/logo-500x120.png" alt="Logiserv Oy">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>Zouxa Bot</h1>
+
+        <div class ="menu">
+            <a href="#" class="is-active">Home</a>
+            <a href="#">Commands</a>
+            <a href="#">About</a>
+            <a href="#">Donate</a>
+        </div>
+
+        <button class="Signin">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        </div>
+    </nav>
+</body>
+<body>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="#">About</a>
+  <a href="#">Services</a>
+  <a href="#">Clients</a>
+  <a href="#">Contact</a>
+</div>
+
+<script>
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+
+const Signin = document.querySelector('.Signin');
+
+Signin.addEventListener('click', function () {
+    this.classList.toggle('is-active');
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+
+})
+</script>
+   
+</body>
+</html> 
