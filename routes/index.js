@@ -2,10 +2,10 @@ const express = require('express');
 const router  = express.Router();
 const {ensureAuthenticated} = require('../config/auth') 
 //login page
-router.get('/', (req,res)=>{
-    res.sendFile('./welcome.html', {root: 'views'});
-})
 //register page
+router.get('/test69', (req,res)=>{
+    res.sendFile('./welcome.html', {root: 'views'})
+})
 router.get('/register', (req,res)=>{
     res.render('register');
 })
