@@ -10,6 +10,7 @@
         padding: 2em;
         border-radius: .3em;
         box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+        background-color: #2b2b2b;
 }
 
 p {
@@ -28,7 +29,7 @@ p {
                 height: 1px;
                 width: 10px;
                 border-bottom: 1px solid black;
-                top: 10px;
+                top: 60%;
                 left: -15px;
 
             }
@@ -40,6 +41,56 @@ p {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
 }
+
+.button{
+  background-color: #2b2b2b;
+	width: 250px;
+	height: 40px;
+  color: #ffffff;
+  outline: none;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  top: 10%;
+  
+
+}
+
+.button {border-radius: 4px;}
+
+.block-display button{
+  margin-bottom:5px;
+  
+}
+
+.button:hover{
+  background-color: #8c38ff;
+  transition: 0.4s;
+}
+
+.button.is-active, .button a:hover {
+            background-color: #8c38ff;
+        }
+
+        .box {
+    position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  left: 100px;
+  height: 337px;
+  width: 330px;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 8px;
+
+}
+
+.blue {
+  background-color: #2b2b2b;
+}
+
 </style>
 
 <!DOCTYPE html>
@@ -245,36 +296,6 @@ top: 25px;
   font-weight: bold;
 }
 
-.button{
-  background-color: #2b2b2b;
-	width: 250px;
-	height: 40px;
-  color: #ffffff;
-  outline: none;
-  font-size: 20px;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  padding-left: 20px;
-  
-
-}
-
-.button {border-radius: 4px;}
-
-.block-display button{
-  margin-bottom:5px;
-  
-}
-
-.button:hover{
-  background-color: #8c38ff;
-  transition: 0.4s;
-}
-
-.button.is-active, .button a:hover {
-            background-color: #8c38ff;
-        }
 
 
 /**************************/
@@ -329,32 +350,30 @@ img {
   <a href="/users/login">Sign In</a>
 </div>
 
+
+
 <div class="contain">
   <div class="quote">
-  </br>
+    <a href="#">
+      <button class="button">Extra </button>
+  </a>
   <a href="#">
-    <button class="button is-active">Slashcommands </button>
-</a>
-<a href="#">
-    <button class="button">Moderation </button>
-</a>
-<a href="#">
-    <button class="button">Giveaways </button>
-</a>
-<a href="#">
-    <button class="button">Roles </button>
-</a>
-<a href="#">
-    <button class="button">Management </button>
-</a>
-<a href="#">
     <button class="button">Extra </button>
 </a>
-</div>
-<br>
-      <span></span>
+<a href="#">
+  <button class="button">Extra </button>
+</a>
+<a href="#">
+  <button class="button">Extra </button>
+</a>
+<a href="#">
+  <button class="button">Extra </button>
+</a>
+<a href="#">
+  <button class="button">Extra </button>
+</a>
   </div>
-  <div class="quote span-2">
+  <div class="quote">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nesciunt ullam itaque! Consequuntur, asperiores modi!</p>
       <span></span>
   </div>
