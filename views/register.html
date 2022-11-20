@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<%- include ('./partials/messages') %>
+<html lang="en" >
+    <form action="/users/login" method="POST">
+<head>
+  <meta charset="UTF-8">
+  <title>Kirjaudu sisään sivu</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
+<style>
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+:root{
+            --primary: #8c38ff;
+            --light: #EEEEEE;
+            --dark: #212121;
+        }
+
+        .container{
+            max-width: 1280px;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+            background-color: var(--dark);
+            padding: 16px 32px;
+            border-bottom: 3px solid var(--primary)
+        }
+
+        h1 {
+            color: #FFF;
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+       
+
+        h10 {
+          color: #FFF;
+          font-size: 28px;
+          font-weight: 900;
+          margin-left: 20px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          position: absolute;
+top: 25px;
+          
+      }
+
+        .Signin{
+            display: block;
+            position: relative;
+            z-index: 1;
+
+            user-select: none;
+
+            appearance: none;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        .Signin span {
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+
+            background-color: var(--light);
+            border-radius: 6px;
+            z-index: 1;
+
+            transform-origin: 0 0;
+
+            transition: 0.4s;
+        }
+
+        .Signin:hover span:nth-child(2) {
+            transform: translateX(10px);
+            background-color: var(--primary);
+        }
+
+        .Signin.is-active span:nth-child(1) {
+            transform: translate(0px, -2px) rotate(45deg);
+        }
+        .Signin.is-active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(15px);
+        }
+        .Signin.is-active span:nth-child(3) {
+            transform: translate(-3px, 3px) rotate(-45deg);
+        }
+
+        .Signin.is-active:hover span {
+            background-color: var(--primary);
+        }
+
+        .menu {
+            display: none;
+            flex: 1 1 0%;
+            justify-content: flex-end;
+            margin: 0 -16px;
+        }
+
+        @media (min-width: 768px) {
+            .Signin {
+                display: none;
+            }
+            .menu {
+                display: flex;
+            }
+      
+
+            }
+
+        .menu a {
+            color: #FFF;
+            margin: 0 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.4s;
+            padding: 8px 16px;
+            border-radius: 90px;
+        }
+
+        .menu a.is-active, .menu a:hover {
+            background-color: var(--primary);
+        }
+
+        p{
+  font-family: arial;
+  font-weight: bold;
+}
+
+.button{
+  background-color: #2b2b2b;
+	width: 250px;
+	height: 40px;
+  color: #ffffff;
+  outline: none;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding-left: 20px;
+  
+
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+  }
+
+    body {
+  background-image: linear-gradient(135deg, #212121 10%, #212121 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+
+.box-form {
+  margin: 0 auto;
+  width: 80%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px #090b6f85;
+  margin-top: 150px;
+}
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+.box-form div {
+  height: auto;
+}
+.box-form .left {
+  color: #FFFFFF;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("");
+  overflow: hidden;
+}
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: #8c38ff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box-form .left .overlay h1 {
+  font-size: large;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.box-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+.box-form .left .overlay span a {
+  background: #229b1e;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+.box-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+.box-form .right {
+  padding: 40px;
+  overflow: hidden;
+}
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+.box-form .right h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+.box-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+.box-form .right .inputs {
+  overflow: hidden;
+}
+.box-form .right input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-form .right .remember-me--forget-password input {
+  margin: 0;
+  margin-right: 7px;
+  width: auto;
+}
+.box-form .right button {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #6a00ff;
+  background-image: linear-gradient(135deg, #8c38ff 10%, #8c38ff 100%);
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+label::before {
+  content: ' \f00c';
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: ' \f00c';
+  color: #fff;
+  cursor: pointer;
+  
+}
+
+
+
+label span.text-checkbox {
+  display: inline-block;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+
+</style>
+
+
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>LogiservOY</h1>
+    <p>Olemme tarjonneet vuodesta 2015 lähtien yrityksille asiantuntevaa </p>
+    <p>turvallisuusneuvonantajapalveluita sekä tuotantoautoiluun liittyviä </p>
+    <p>asiantuntijapalveluita. Toimintamme perustuu korkeatasoiseen asiakaspalveluun</p>
+    <p> sekä asiantuntijan laajaan toimialan työkokemukseen ja vahvaan osaamiseen.</p>
+    <p>Toimintamme sisältää valmiiksi kehitettyjä toimintaprosesseja ja työkaluja, </p>
+    <p>joiden pohjalta räätälöimme asiakaskohtaisesti sopivamman palvelun. Tapamme </p>
+    <p>toimia mahdollistaa kustannustehokkaamman toimintamallin, ja joka tuo selkeää </p>
+    <p>säästöä verrattuna perinteiseen toimintatapaan. Toimimme asiakkaan edunvalvojana.</p>
+    <p>Meille asiakkaalle tuottama säästö on yhteinen tavoitteemme ja ohjaa toimintaamme </p>
+    <p>ja periaatteitamme.</p>
+
+
+    
+		</div>
+	</div>
+
+  <body>
+    <nav>
+        <div class="container">
+          <div id="myHeading">
+            <img src="https://media.tenor.com/bC9Fog9Bqo4AAAAC/ranboo-ranboo-live.gif"
+     width="50" 
+     height="50" />
+            <h10>Zouxa</h10>
+        </div>
+
+        <div class ="menu">
+            <a href="/">Home</a>
+            <a href="/commands/slashcommands">Commands</a>
+            <a href="/about">About</a>
+            <a href="https://discord.gg/HVyHjy7Vzp">Join Our Discord</a>
+            <a href="https://www.paypal.me/zouxabot">Donate</a>
+            <a href="/users/login" class="is-active">Sign In</a>
+        </div>
+
+        <button class="Signin">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        </div>
+    </nav>
+</body>
+<body>
+
+<div id="mySidebar" class="sidebar">
+  <a href="/">Home</a>
+  <a href="/commands/slashcommands">Commands</a>
+  <a href="/about">About</a>
+  <a href="https://discord.gg/HVyHjy7Vzp">Join Our Discord</a>
+  <a href="https://www.paypal.me/zouxabot">Donate</a>
+  <a href="/users/login">Sign In</a>
+</div>
+
+<body>
+<div>
+
+<script>
+
+const Signin = document.querySelector('.Signin');
+
+
+
+Signin.addEventListener('click', function () {
+  
+  if (this.classList.toggle('is-active')) {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+
+  } else {
+    document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  }
+})
+</script>
+	
+	
+<div class="right">
+  <h5>Sign Up</h5>
+  <p>Do you already have an account? <a href="/users/login">Sign Up</a></p>
+  <div>
+    <label for="name"></label>
+  <input
+    type="name"
+    name="name"
+    placeholder="Name *"
+    value="<%= typeof name != 'undefined' ? name : '' %>"
+  />
+    </div>
+    <div>
+      <label for="email"></label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email *"
+        value="<%= typeof email != 'undefined' ? email : '' %>"
+      />
+    </div>
+      <div >
+        <label for="password"></label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Create Password *"
+          value="<%= typeof password != 'undefined' ? password : '' %>"
+        />
+      </div>
+        <div >
+          <label for="password2"></label>
+          <input
+            type="password"
+            name="password2"
+            placeholder="Confirm Password *"
+            value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+          />
+          </div>
+    
+    <br><br>
+    
+  <div class="remember-me--forget-password">
+      <!-- Angular -->
+    <p></p>
+  </div>
+    
+    <br>
+    <button type="submit" class="btn btn-primary btn-block">
+      Sign Up
+    </button>
+</div>
+
+</div>
+<!-- partial -->
+
+</form>
+</body>
+</html>
+
+	
+	
+		
