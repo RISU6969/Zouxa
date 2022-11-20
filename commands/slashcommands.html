@@ -183,21 +183,15 @@ top: 25px;
                 display: flex;
             }
             .box {
-              display: block;
-            }
-            .mobileb {
-              display: none;
+              display: flex;
             }
         }
 
         @media (max-width: 480px) {
-          .box {
-            display: none;
-          }
 
-          .mobileb {
-            display: block;
-          }
+          .box { flex-wrap: wrap;  }
+          .block-display:first-child { flex-basis: 100%; }
+          
         }
 
         .menu a {
@@ -347,24 +341,6 @@ background-color: #2b2b2b;
 
 /**************************/
 
-.mobileb {
-    position: absolute;
-  top: 200%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  margin-left: 20px;
-  height: 337px;
-  width: 330px;
-  border: 1px solid black;
-  text-align: center;
-  border-radius: 8px;
-
-}
-
-.blueb {
-  background-color: #2b2b2b;
-}
-
 img {
   border-radius: 50%;
 }
@@ -491,18 +467,6 @@ img {
             </div>
             <br>
         </body>
-
-        <body>
-          <div>
-              <div class='mobileb blueb'>
-          
-              </br>
-              <div class="block-display">
-                <h1>EXAMPLE</h1>
-                
-              </div>
-              <br>
-          </body>
 
         
 
