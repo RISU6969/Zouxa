@@ -280,6 +280,11 @@ const {ensureAuthenticated} = require('../config/auth')
 router.get('/commands/slashcommands', (req,res)=>{
     res.sendFile('./slashcommands.html', {root: 'views'})
 })
+app.use(express.staticProvider(__dirname + '/views'));
+
+app.get('/commands/slashcommands', function(req, res) {
+    res.render('slashcommands.html');
+});
 router.get('/register', (req,res)=>{
     res.render('register');
 })
