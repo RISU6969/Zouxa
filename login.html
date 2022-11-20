@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html>
+<%- include ('./partials/messages') %>
+<html lang="en" >
+    <form action="/users/login" method="POST">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Kirjaudu sisään sivu</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
 <style>
-body {
-  font-family: "Lato", sans-serif;
-}
 
 .sidebar {
   height: 100%;
@@ -65,17 +69,6 @@ body {
             --dark: #212121;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-bone;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        body {
-            background: #212121;
-            color: #212121;
-        }
         .container{
             max-width: 1280px;
             margin: 0 auto;
@@ -103,6 +96,8 @@ body {
             letter-spacing: 2px;
             text-transform: uppercase;
         }
+
+       
 
         h10 {
           color: #FFF;
@@ -227,10 +222,196 @@ img {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
   }
+
+    body {
+  background-image: linear-gradient(135deg, #212121 10%, #212121 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: "Open Sans", sans-serif;
+  color: #333333;
+}
+
+.box-form {
+  margin: 0 auto;
+  width: 80%;
+  background: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex: 1 1 100%;
+  align-items: stretch;
+  justify-content: space-between;
+  box-shadow: 0 0 20px 6px #090b6f85;
+  margin-top: 150px;
+}
+@media (max-width: 980px) {
+  .box-form {
+    flex-flow: wrap;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+.box-form div {
+  height: auto;
+}
+.box-form .left {
+  color: #FFFFFF;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("");
+  overflow: hidden;
+}
+.box-form .left .overlay {
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  background-color: #8c38ff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.box-form .left .overlay h1 {
+  font-size: large;
+  line-height: 1;
+  font-weight: 900;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.box-form .left .overlay span p {
+  margin-top: 30px;
+  font-weight: 900;
+}
+.box-form .left .overlay span a {
+  background: #229b1e;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 14px 50px;
+  border-radius: 100px;
+  display: inline-block;
+  box-shadow: 0 3px 6px 1px #042d4657;
+}
+.box-form .left .overlay span a:last-child {
+  background: #1dcaff;
+  margin-left: 30px;
+}
+.box-form .right {
+  padding: 40px;
+  overflow: hidden;
+}
+@media (max-width: 980px) {
+  .box-form .right {
+    width: 100%;
+  }
+}
+.box-form .right h5 {
+  font-size: 2vmax;
+  line-height: 0;
+}
+.box-form .right p {
+  font-size: 14px;
+  color: #B0B3B9;
+}
+.box-form .right .inputs {
+  overflow: hidden;
+}
+.box-form .right input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #B0B3B9;
+}
+.box-form .right .remember-me--forget-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-form .right .remember-me--forget-password input {
+  margin: 0;
+  margin-right: 7px;
+  width: auto;
+}
+.box-form .right button {
+  color: #fff;
+  font-size: 16px;
+  padding: 12px 35px;
+  border-radius: 50px;
+  display: inline-block;
+  border: 0;
+  outline: 0;
+  box-shadow: 0px 4px 20px 0px #6a00ff;
+  background-image: linear-gradient(135deg, #8c38ff 10%, #8c38ff 100%);
+}
+
+label {
+  display: block;
+  position: relative;
+  margin-left: 30px;
+}
+
+label::before {
+  content: ' \f00c';
+  position: absolute;
+  font-family: FontAwesome;
+  background: transparent;
+  
+  border-radius: 4px;
+  color: transparent;
+  left: -30px;
+  transition: all 0.2s linear;
+}
+
+label:hover::before {
+  font-family: FontAwesome;
+  content: ' \f00c';
+  color: #fff;
+  cursor: pointer;
+  
+}
+
+
+
+label span.text-checkbox {
+  display: inline-block;
+  height: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+
 </style>
+
+
+
 
 </head>
 <body>
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>LogiservOY</h1>
+    <p>Olemme tarjonneet vuodesta 2015 lähtien yrityksille asiantuntevaa </p>
+    <p>turvallisuusneuvonantajapalveluita sekä tuotantoautoiluun liittyviä </p>
+    <p>asiantuntijapalveluita. Toimintamme perustuu korkeatasoiseen asiakaspalveluun</p>
+    <p> sekä asiantuntijan laajaan toimialan työkokemukseen ja vahvaan osaamiseen.</p>
+    <p>Toimintamme sisältää valmiiksi kehitettyjä toimintaprosesseja ja työkaluja, </p>
+    <p>joiden pohjalta räätälöimme asiakaskohtaisesti sopivamman palvelun. Tapamme </p>
+    <p>toimia mahdollistaa kustannustehokkaamman toimintamallin, ja joka tuo selkeää </p>
+    <p>säästöä verrattuna perinteiseen toimintatapaan. Toimimme asiakkaan edunvalvojana.</p>
+    <p>Meille asiakkaalle tuottama säästö on yhteinen tavoitteemme ja ohjaa toimintaamme </p>
+    <p>ja periaatteitamme.</p>
+
+
+    
+		</div>
+	</div>
+
+  <body>
     <nav>
         <div class="container">
           <div id="myHeading">
@@ -241,12 +422,12 @@ img {
         </div>
 
         <div class ="menu">
-            <a href="/" class="is-active">Home</a>
-            <a href="./slashcommands">Commands</a>
+            <a href="/">Home</a>
+            <a href="/commands/slashcommands">Commands</a>
             <a href="/about">About</a>
             <a href="https://discord.gg/HVyHjy7Vzp">Join Our Discord</a>
             <a href="https://www.paypal.me/zouxabot">Donate</a>
-            <a href="login.html">Sign In</a>
+            <a href="/users/login" class="is-active">Sign In</a>
         </div>
 
         <button class="Signin">
@@ -261,16 +442,17 @@ img {
 
 <div id="mySidebar" class="sidebar">
   <a href="/">Home</a>
-  <a href="/slashcommands.html">Commands</a>
+  <a href="/commands/slashcommands">Commands</a>
   <a href="/about">About</a>
   <a href="https://discord.gg/HVyHjy7Vzp">Join Our Discord</a>
   <a href="https://www.paypal.me/zouxabot">Donate</a>
-  <a href="login.html">Sign In</a>
+  <a href="/users/login">Sign In</a>
 </div>
 
 <body>
 <div>
-  <script>
+
+<script>
 
 const Signin = document.querySelector('.Signin');
 
@@ -288,6 +470,41 @@ Signin.addEventListener('click', function () {
   }
 })
 </script>
-   
+	
+	
+		<div class="right">
+		<h5>Sign In</h5>
+		<p>You dont have an account? <a href="/users/register">Sign Up</a> Takes under a minute</p>
+		<div>
+      <label for="email"></label>
+      <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      />
+      </div>
+      <div>
+          <label for="password"></label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+			
+			<br><br>
+			
+		<div class="remember-me--forget-password">
+				<!-- Angular -->
+			<p>Forgot password?</p>
+		</div>
+			
+			<br>
+			<button type="submit" class="btn btn-primary btn-block">Log In</button>
+	</div>
+	
+</div>
+<!-- partial -->
+  
+</form>
 </body>
-</html> 
+</html>

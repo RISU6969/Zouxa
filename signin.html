@@ -1,0 +1,53 @@
+<h1> Login </h1>
+<%- include ('./partials/messages') %>
+<form action="/users/login" method="POST">
+<style>
+  div {text-align: center;}
+  h1 {text-align: center;}
+  label {text-align: center;}
+  button {text-align: center;}
+</style>
+<style>
+  .container { 
+    height: 700px;
+    position: relative; 
+  }
+  
+  .center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  </style>
+  </head>
+  <body>
+  
+  
+<div>
+<label for="email">Email</label>
+<input
+type="email"
+name="email"
+placeholder="Enter Email"
+/>
+</div>
+<div>
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      placeholder="Enter Password"
+    />
+  
+</div>
+<div class="container">
+  <div class="center">
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+  </div>
+</div>
+
+   
+</form>
